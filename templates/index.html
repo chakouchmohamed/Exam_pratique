@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script text="text/javascript" src="visualiser.js"></script>
+  <title>Pridictive maintenance</title>
+  
+</head>
+
+<body style="background: rgb(117, 106, 106);">
+ <div class="login">
+	<h1 style="color:rgb(250, 245, 250);">Predictive maintenance simulator</h1>
+
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Product_ID" placeholder="Product_ID" required="required" /><br>
+        <input type="text" name="Type" placeholder="Type" required="required" /><p>
+        <input type="text" name="Air_temperature" placeholder="Air_temperature" required="required" /><p>
+        <input type="text" name="Process_temperature" placeholder="Process_temperature" required="required" /><p>
+        <input type="text" name="Rotational_speed" placeholder="Rotational_speed" required="required" /><p>
+        <input type="text" name="Torque" placeholder="Torque" required="required" /><p>
+        <input type="text" name="Tool_wear" placeholder="Tool_wear" required="required" /><p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Faillure machine</button></p>
+    </form>
+
+   <br>
+   <br>
+   <h2 style="color:rgb(246, 240, 246);">
+   {{ prediction_text }}
+   </h2>
+   <h2 style="color:rgb(246, 240, 246);">
+   {{ infos }}
+   </h2>
+ </div>
+</body>
+</html>
